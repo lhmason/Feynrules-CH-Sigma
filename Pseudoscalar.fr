@@ -1,0 +1,96 @@
+M$PseudoscalarFields = {
+  S[4] == {
+    ClassName        -> sc,
+    SelfConjugate    -> True,
+    Mass             -> {Msc, 50.0},
+    Width            -> {Wsc, 1.0},
+    PropagatorLabel  -> "sc",
+    PropagatorType   -> D,
+    PropagatorArrow  -> None,
+    ParticleName     -> "Sigma",
+    FullName         -> "sc"
+  }
+}
+
+M$ParametersPseudoscalar = {
+
+  Ct == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 2.2,
+    Description   -> "Coeff of the SM top with sigma"
+},
+
+  Cf == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 2.2,
+    Description   -> "Coeff of the SM ferms with sigma"
+},
+
+  fa == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 2.2,
+    Description   -> "Inv coeff of the SM ferms with sigma"
+},
+
+  Kg == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> -7.1,
+    Description   -> "Coeff of the gauge fields with sigma"
+},
+
+  Kw == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 7.6,
+    Description   -> "Coeff of the gauge fields with sigma"
+},
+
+  Kb == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 2.8,
+    Description   -> "Coeff of the gauge fields with sigma"
+},
+
+  kV == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 1,
+    Description   -> "Coupling of Higgs to vectors"
+},
+
+  kt == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 1,
+    Description   -> "Coupling of Higgs to tops"
+},
+
+  Lambda == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> 4 Pi fa,
+    Description   -> "Log divergence"
+},
+
+  gA == {
+    ParameterType -> External,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> -gw/(4 cw),
+    Description   -> "Log divergence"
+}
+}
