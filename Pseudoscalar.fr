@@ -92,5 +92,45 @@ M$ParametersPseudoscalar = {
     OrderBlock    -> 1,
     Value         -> -gw/(4 cw),
     Description   -> "Log divergence"
+},
+
+  CGa == {
+    ParameterType -> Internal,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> (gs^2 Kg)/(16 Pi^2 fa),
+    Description   -> "Coefficient of L_haa"
+},
+
+  CWa == {
+    ParameterType -> Internal,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> (gw^2 Kw)/(16 Pi^2 fa),
+    Description   -> "Coefficient of L_haa"
+},
+
+  CBa == {
+    ParameterType -> Internal,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> (g1^2 Kb)/(16 Pi^2 fa),
+    Description   -> "Coefficient of L_haa"
+},
+
+  Chaa == {
+    ParameterType -> Internal,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> (3 Ct^2 ymt^2 kt)/(8 Pi^2 fa^2 vev) Log[ (Lambda^2)/(ymt^2)],
+    Description   -> "Coefficient of L_haa"
+},
+
+  ChZa == {
+    ParameterType -> Internal,
+    BlockName     -> SIGMA,
+    OrderBlock    -> 1,
+    Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
+    Description   -> "Coefficient of L_hZa"
 }
 }
