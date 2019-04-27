@@ -4,7 +4,6 @@ M$PseudoscalarFields = {
     SelfConjugate    -> True,
     Mass             -> {Msc, 50.0},
     Width            -> {Wsc, 1.0},
-    (*QuantumNumbers   -> {Q -> 0},*)
     PropagatorLabel  -> "sc",
     PropagatorType   -> D,
     PropagatorArrow  -> None,
