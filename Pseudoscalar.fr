@@ -4,6 +4,7 @@ M$PseudoscalarFields = {
     SelfConjugate    -> True,
     Mass             -> {Msc, 50.0},
     Width            -> {Wsc, 1.0},
+    (*QuantumNumbers   -> {Q -> 0},*)
     PropagatorLabel  -> "sc",
     PropagatorType   -> D,
     PropagatorArrow  -> None,
@@ -13,6 +14,15 @@ M$PseudoscalarFields = {
 }
 
 M$ParametersPseudoscalar = {
+
+  Gamma5 == {
+    ParameterType -> External,
+    Unitary       -> True,
+    Value         -> {Gamma5[1,1] -> 0,  Gamma5[1,2] -> 0,         Gamma5[1,3] -> 1,  Gamma5[1,4] -> 0,
+                      Gamma5[2,1] -> 0,  Gamma5[2,2] -> 0,         Gamma5[2,3] -> 0,  Gamma5[2,4] -> 1,
+                      Gamma5[3,1] -> 1,  Gamma5[3,2] -> 0,         Gamma5[3,3] -> 0, Gamma5[3,4] -> 0,
+                      Gamma5[4,1] -> 0,  Gamma5[4,2] -> 1,         Gamma5[4,3] -> 0, Gamma5[4,4] -> 0},
+    Description -> "Gamma 5 Matrix"},
 
   Ct == {
     ParameterType -> External,

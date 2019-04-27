@@ -48,17 +48,30 @@ LYukawa := Block[{sp,ii,jj,cc,ff1,ff2,ff3,yuk,feynmangaugerules},
   yuk+HC[yuk]/.feynmangaugerules
  ];
 
-LSigF := Block[{sp,cc,ff1,ff2,ff3},
+
+LSigF := Block[{sp,ii,jj,cc,ff1,ff2,ff3,yuk,feynmangaugerules},
+  feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+
+  yuks = ExpandIndices[
+   -yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] sc -  
+    yl[ff1, ff3] LLbar[sp, ii, ff1].lR [sp, ff3] sc -      
+    yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR [sp, ff2, cc] sc, FlavorExpand -> SU2D];
+  yuks = yuks /. { CKM[a_, b_] Conjugate[CKM[a_, c_]] -> IndexDelta[b, c], CKM[b_, a_] Conjugate[CKM[c_, a_]] -> IndexDelta[b, c]};
+  yuks+HC[yuks]/.feynmangaugerules
+ ];
+
+LSigF_wrong := Block[{sp,cc,ff1,ff2,ff3,ii},
 
   ExpandIndices[
   DC[sc,mu] DC[sc,mu] -1/2 Msc^2 sc sc 
-(*  - (I Cf)/fa (  yd[ff2, ff3] vev/Sqrt[2] sc CKM[ff1, ff2] QLbar[sp, ff1, cc].Ga[5].QL[sp, ff3, cc] *)
-(*  + yu[ff2, ff3] vev/Sqrt[2] sc QLbar[sp, ff2, cc].Ga[5].QL[sp, ff3, cc]*)
-(*  + yl[ff1, ff3] vev/Sqrt[2] sc LLbar[sp, ff1].Ga[5].LL [sp, ff3]*)
-(*  + yd[ff2, ff3] vev/Sqrt[2] sc CKM[ff1, ff2] dRbar[sp, ff1, cc].Ga[5].dR[sp, ff3, cc]*)
+  - (I Cf)/fa (  
+  yd[ff2, ff3] vev/Sqrt[2] sc CKM[ff1, ff2] QLbar[sp, ff1, ii, cc].Gamma5.QL[sp, ff3, ii, cc] 
+  + yu[ff2, ff3] vev/Sqrt[2] sc QLbar[sp, ff2, ii, cc].Gamma5.QL[sp, ff3, ii, cc]
+  + yd[ff2, ff3] vev/Sqrt[2] sc CKM[ff1, ff2] dRbar[sp, ff1, cc].Gamma5.dR[sp, ff3, cc]
 
-  + yu[ff2, ff3] vev/Sqrt[2] sc uRbar[sp, ff2, cc].Ga[5].uR[sp, ff3, cc]
-  + yl[ff1, ff3] vev/Sqrt[2] sc lRbar[sp, ff1].Ga[5].lR[sp, ff3]            (* ), FlavorExpand -> SU2D;*)
+  + yl[ff1, ff3] vev/Sqrt[2] sc LLbar[sp, ii, ff1].Gamma5.LL [sp, ii, ff3]
+  + yu[ff2, ff3] vev/Sqrt[2] sc uRbar[sp, ff2, cc].Gamma5.uR[sp, ff3, cc]
+  + yl[ff1, ff3] vev/Sqrt[2] sc lRbar[sp, ff1].Gamma5.lR[sp, ff3]), FlavorExpand -> SU2D;
   ]/.{CKM[a_,b_] Conjugate[CKM[a_,c_]]->IndexDelta[b,c], CKM[b_,a_] Conjugate[CKM[c_,a_]]->IndexDelta[b,c]}];
 
 LSigG := Block[{mu,nu,ii,ro,sig,aa},
@@ -68,11 +81,13 @@ LSigG := Block[{mu,nu,ii,ro,sig,aa},
   + CBa sc Eps[mu,nu,ro,sig] FS[B,mu,nu] FS[B,ro,sig] (*, FlavorExpand->SU2W;*)
 ]];
 
-LhSig := Block[{mu},
+LhaaSig := Block[{mu},
 
   ExpandIndices[ 
-  Chaa H DC[sc,mu] DC[sc,mu] 
-  (*+ ChZa H.DC[sc,mu].Ga[mu].Z*)
-]];
+  Chaa  DC[sc,mu] DC[sc,mu] ]];
 
-LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LhSig + LSigG + LSigF ;  
+LhZaSig := Block[{mu},
+  ExpandIndices[ 
+  ChZa H DC[sc,mu] Ga[mu].Z ]];
+
+LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSigF ; (* + LhaaSig  + LSigG + LhZaSig;  *)
