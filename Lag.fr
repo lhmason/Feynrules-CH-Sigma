@@ -70,6 +70,6 @@ LhaaSig := Block[{mu},
   ExpandIndices[Chaa  DC[sc,mu] DC[sc,mu] ]];
 
 LhZaSig := Block[{mu},
-  ExpandIndices[ChZa H DC[sc,mu] Ga[mu].Z ]];
+  ExpandIndices[ChZa H DC[sc,mu] Z[mu] ]];
 
-LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSigF + LSigkin + LhaaSig  + LSigG; (*  + LhZaSig;  *)
+LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSigF + LSigkin + LhaaSig  + LSigG + LhZaSig;  
