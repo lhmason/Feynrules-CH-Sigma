@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Mon 29 Apr 2019 15:16:32
+# Date: Mon 29 Apr 2019 17:47:20
 
 
 
@@ -24,6 +24,62 @@ cabi = Parameter(name = 'cabi',
                  texname = '\\theta _c',
                  lhablock = 'CKMBLOCK',
                  lhacode = [ 1 ])
+
+Ct = Parameter(name = 'Ct',
+               nature = 'external',
+               type = 'real',
+               value = 2.2,
+               texname = '\\text{Ct}',
+               lhablock = 'SIGMA',
+               lhacode = [ 1 ])
+
+fa = Parameter(name = 'fa',
+               nature = 'external',
+               type = 'real',
+               value = 2.2,
+               texname = '\\text{fa}',
+               lhablock = 'SIGMA',
+               lhacode = [ 2 ])
+
+Kg = Parameter(name = 'Kg',
+               nature = 'external',
+               type = 'real',
+               value = -7.1,
+               texname = '\\text{Kg}',
+               lhablock = 'SIGMA',
+               lhacode = [ 3 ])
+
+Kw = Parameter(name = 'Kw',
+               nature = 'external',
+               type = 'real',
+               value = 7.6,
+               texname = '\\text{Kw}',
+               lhablock = 'SIGMA',
+               lhacode = [ 4 ])
+
+Kb = Parameter(name = 'Kb',
+               nature = 'external',
+               type = 'real',
+               value = 2.8,
+               texname = '\\text{Kb}',
+               lhablock = 'SIGMA',
+               lhacode = [ 5 ])
+
+kV = Parameter(name = 'kV',
+               nature = 'external',
+               type = 'real',
+               value = 1,
+               texname = '\\text{kV}',
+               lhablock = 'SIGMA',
+               lhacode = [ 6 ])
+
+kt = Parameter(name = 'kt',
+               nature = 'external',
+               type = 'real',
+               value = 1,
+               texname = '\\text{kt}',
+               lhablock = 'SIGMA',
+               lhacode = [ 7 ])
 
 aEWM1 = Parameter(name = 'aEWM1',
                   nature = 'external',
@@ -120,14 +176,6 @@ ymtau = Parameter(name = 'ymtau',
                   texname = '\\text{ymtau}',
                   lhablock = 'YUKAWA',
                   lhacode = [ 15 ])
-
-Gamma5 = Parameter(name = 'Gamma5',
-                   nature = 'external',
-                   type = 'real',
-                   value = Rule(Gamma5(1,1),0),
-                   texname = '\\text{Gamma5}',
-                   lhablock = 'Gamma5[1, 2] -> 0',
-                   lhacode = [ 1 ])
 
 MZ = Parameter(name = 'MZ',
                nature = 'external',
@@ -331,11 +379,11 @@ CKM3x3 = Parameter(name = 'CKM3x3',
                    value = '1',
                    texname = '\\text{CKM3x3}')
 
-ChZa = Parameter(name = 'ChZa',
-                 nature = 'internal',
-                 type = 'real',
-                 value = '1',
-                 texname = '\\text{ChZa}')
+Lambda = Parameter(name = 'Lambda',
+                   nature = 'internal',
+                   type = 'real',
+                   value = '4*fa*cmath.pi',
+                   texname = '\\text{Lambda}')
 
 CGa = Parameter(name = 'CGa',
                 nature = 'internal',
@@ -397,6 +445,12 @@ CBa = Parameter(name = 'CBa',
                 value = '(g1**2*Kb)/(16.*fa*cmath.pi**2)',
                 texname = '\\text{CBa}')
 
+Cf = Parameter(name = 'Cf',
+               nature = 'internal',
+               type = 'real',
+               value = '1.5556349186104046*vev',
+               texname = '\\text{Cf}')
+
 Chaa = Parameter(name = 'Chaa',
                  nature = 'internal',
                  type = 'real',
@@ -408,6 +462,12 @@ CWa = Parameter(name = 'CWa',
                 type = 'real',
                 value = '(gw**2*Kw)/(16.*fa*cmath.pi**2)',
                 texname = '\\text{CWa}')
+
+gA = Parameter(name = 'gA',
+               nature = 'internal',
+               type = 'real',
+               value = '-gw/(4.*cw)',
+               texname = '\\text{gA}')
 
 lam = Parameter(name = 'lam',
                 nature = 'internal',
@@ -468,6 +528,12 @@ yup = Parameter(name = 'yup',
                 type = 'real',
                 value = '(ymup*cmath.sqrt(2))/vev',
                 texname = '\\text{yup}')
+
+ChZa = Parameter(name = 'ChZa',
+                 nature = 'internal',
+                 type = 'real',
+                 value = '(3*Ct**2*gA*(kt - kV)*ymt**2*cmath.log(Lambda**2/ymt**2))/(2.*fa*cmath.pi**2*vev)',
+                 texname = '\\text{ChZa}')
 
 muH = Parameter(name = 'muH',
                 nature = 'internal',

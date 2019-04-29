@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Mon 29 Apr 2019 15:16:32
+# Date: Mon 29 Apr 2019 17:47:20
 
 
 from object_library import all_vertices, Vertex
@@ -84,109 +84,109 @@ V_12 = Vertex(name = 'V_12',
 V_13 = Vertex(name = 'V_13',
               particles = [ P.d__tilde__, P.d, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_48})
 
 V_14 = Vertex(name = 'V_14',
               particles = [ P.s__tilde__, P.s, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_54})
 
 V_15 = Vertex(name = 'V_15',
               particles = [ P.b__tilde__, P.b, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_44})
 
 V_16 = Vertex(name = 'V_16',
               particles = [ P.e__plus__, P.e__minus__, P.H ],
               color = [ '1' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_50})
 
 V_17 = Vertex(name = 'V_17',
               particles = [ P.mu__plus__, P.mu__minus__, P.H ],
               color = [ '1' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_52})
 
 V_18 = Vertex(name = 'V_18',
               particles = [ P.ta__plus__, P.ta__minus__, P.H ],
               color = [ '1' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_58})
 
 V_19 = Vertex(name = 'V_19',
               particles = [ P.u__tilde__, P.u, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_60})
 
 V_20 = Vertex(name = 'V_20',
               particles = [ P.c__tilde__, P.c, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_46})
 
 V_21 = Vertex(name = 'V_21',
               particles = [ P.t__tilde__, P.t, P.H ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS2 ],
+              lorentz = [ L.FFS1 ],
               couplings = {(0,0):C.GC_56})
 
 V_22 = Vertex(name = 'V_22',
               particles = [ P.d__tilde__, P.d, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_49})
 
 V_23 = Vertex(name = 'V_23',
               particles = [ P.s__tilde__, P.s, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_55})
 
 V_24 = Vertex(name = 'V_24',
               particles = [ P.b__tilde__, P.b, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_45})
 
 V_25 = Vertex(name = 'V_25',
               particles = [ P.e__plus__, P.e__minus__, P.Sigma ],
               color = [ '1' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_51})
 
 V_26 = Vertex(name = 'V_26',
               particles = [ P.mu__plus__, P.mu__minus__, P.Sigma ],
               color = [ '1' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_53})
 
 V_27 = Vertex(name = 'V_27',
               particles = [ P.ta__plus__, P.ta__minus__, P.Sigma ],
               color = [ '1' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_59})
 
 V_28 = Vertex(name = 'V_28',
               particles = [ P.u__tilde__, P.u, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_61})
 
 V_29 = Vertex(name = 'V_29',
               particles = [ P.c__tilde__, P.c, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_47})
 
 V_30 = Vertex(name = 'V_30',
               particles = [ P.t__tilde__, P.t, P.Sigma ],
               color = [ 'Identity(1,2)' ],
-              lorentz = [ L.FFS1 ],
+              lorentz = [ L.FFS2 ],
               couplings = {(0,0):C.GC_57})
 
 V_31 = Vertex(name = 'V_31',

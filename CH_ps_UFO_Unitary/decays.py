@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Mon 29 Apr 2019 15:16:32
+# Date: Mon 29 Apr 2019 17:47:20
 
 
 from object_library import all_decays, Decay
@@ -30,15 +30,15 @@ Decay_Sigma = Decay(name = 'Decay_Sigma',
                                       (P.Z,P.Z):'((8*cw**4*CWa**2*Msc**4 - 32*cw**4*CWa**2*Msc**2*MZ**2 + 16*CBa*cw**2*CWa*Msc**4*sw**2 - 64*CBa*cw**2*CWa*Msc**2*MZ**2*sw**2 + 8*CBa**2*Msc**4*sw**4 - 32*CBa**2*Msc**2*MZ**2*sw**4)*cmath.sqrt(Msc**4 - 4*Msc**2*MZ**2))/(32.*cmath.pi*abs(Msc)**3)',
                                       (P.W__minus__,P.W__plus__):'((8*CWa**2*Msc**4 - 32*CWa**2*Msc**2*MW**2)*cmath.sqrt(Msc**4 - 4*Msc**2*MW**2))/(16.*cmath.pi*abs(Msc)**3)',
                                       (P.g,P.g):'(2*CGa**2*Msc**6)/(cmath.pi*abs(Msc)**3)',
-                                      (P.d,P.d__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*ydo**2*cmath.sqrt(-4*MD**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.s,P.s__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*ys**2*cmath.sqrt(-4*MS**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.b,P.b__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*yb**2*cmath.sqrt(-4*MB**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.e__minus__,P.e__plus__):'(Cf**2*Gamma5**2*Msc**2*ye**2*cmath.sqrt(-4*Me**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.mu__minus__,P.mu__plus__):'(Cf**2*Gamma5**2*Msc**2*ym**2*cmath.sqrt(-4*MMU**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.ta__minus__,P.ta__plus__):'(Cf**2*Gamma5**2*Msc**2*ytau**2*cmath.sqrt(Msc**4 - 4*Msc**2*MTA**2))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.u,P.u__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*yup**2*cmath.sqrt(Msc**4 - 4*Msc**2*MU**2))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.c,P.c__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*yc**2*cmath.sqrt(-4*MC**2*Msc**2 + Msc**4))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
-                                      (P.t,P.t__tilde__):'(3*Cf**2*Gamma5**2*Msc**2*yt**2*cmath.sqrt(Msc**4 - 4*Msc**2*MT**2))/(8.*fa**2*cmath.pi*abs(Msc)**3)',
+                                      (P.d,P.d__tilde__):'(((-24*Cf**2*MD**2*ydo**2)/fa**2 + (6*Cf**2*Msc**2*ydo**2)/fa**2)*cmath.sqrt(-4*MD**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.s,P.s__tilde__):'(((-24*Cf**2*MS**2*ys**2)/fa**2 + (6*Cf**2*Msc**2*ys**2)/fa**2)*cmath.sqrt(-4*MS**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.b,P.b__tilde__):'(((-24*Cf**2*MB**2*yb**2)/fa**2 + (6*Cf**2*Msc**2*yb**2)/fa**2)*cmath.sqrt(-4*MB**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.e__minus__,P.e__plus__):'(((-8*Cf**2*Me**2*ye**2)/fa**2 + (2*Cf**2*Msc**2*ye**2)/fa**2)*cmath.sqrt(-4*Me**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.mu__minus__,P.mu__plus__):'(((-8*Cf**2*MMU**2*ym**2)/fa**2 + (2*Cf**2*Msc**2*ym**2)/fa**2)*cmath.sqrt(-4*MMU**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.ta__minus__,P.ta__plus__):'(((2*Cf**2*Msc**2*ytau**2)/fa**2 - (8*Cf**2*MTA**2*ytau**2)/fa**2)*cmath.sqrt(Msc**4 - 4*Msc**2*MTA**2))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.u,P.u__tilde__):'(((6*Cf**2*Msc**2*yup**2)/fa**2 - (24*Cf**2*MU**2*yup**2)/fa**2)*cmath.sqrt(Msc**4 - 4*Msc**2*MU**2))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.c,P.c__tilde__):'(((-24*Cf**2*MC**2*yc**2)/fa**2 + (6*Cf**2*Msc**2*yc**2)/fa**2)*cmath.sqrt(-4*MC**2*Msc**2 + Msc**4))/(16.*cmath.pi*abs(Msc)**3)',
+                                      (P.t,P.t__tilde__):'(((6*Cf**2*Msc**2*yt**2)/fa**2 - (24*Cf**2*MT**2*yt**2)/fa**2)*cmath.sqrt(Msc**4 - 4*Msc**2*MT**2))/(16.*cmath.pi*abs(Msc)**3)',
                                       (P.H,P.Z):'((-(ChZa**2*MH**2)/2. - (ChZa**2*Msc**2)/2. + (ChZa**2*MH**4)/(4.*MZ**2) - (ChZa**2*MH**2*Msc**2)/(2.*MZ**2) + (ChZa**2*Msc**4)/(4.*MZ**2) + (ChZa**2*MZ**2)/4.)*cmath.sqrt(MH**4 - 2*MH**2*Msc**2 + Msc**4 - 2*MH**2*MZ**2 - 2*Msc**2*MZ**2 + MZ**4))/(16.*cmath.pi*abs(Msc)**3)'})
 
 Decay_Z = Decay(name = 'Decay_Z',

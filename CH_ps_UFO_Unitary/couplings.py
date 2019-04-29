@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Mon 29 Apr 2019 15:16:32
+# Date: Mon 29 Apr 2019 17:47:20
 
 
 from object_library import all_couplings, Coupling
@@ -186,7 +186,7 @@ GC_44 = Coupling(name = 'GC_44',
                  order = {'QED':1})
 
 GC_45 = Coupling(name = 'GC_45',
-                 value = '-((Cf*Gamma5*yb)/fa)',
+                 value = '-((Cf*yb)/fa)',
                  order = {'QED':1})
 
 GC_46 = Coupling(name = 'GC_46',
@@ -194,7 +194,7 @@ GC_46 = Coupling(name = 'GC_46',
                  order = {'QED':1})
 
 GC_47 = Coupling(name = 'GC_47',
-                 value = '-((Cf*Gamma5*yc)/fa)',
+                 value = '-((Cf*yc)/fa)',
                  order = {'QED':1})
 
 GC_48 = Coupling(name = 'GC_48',
@@ -202,7 +202,7 @@ GC_48 = Coupling(name = 'GC_48',
                  order = {'QED':1})
 
 GC_49 = Coupling(name = 'GC_49',
-                 value = '-((Cf*Gamma5*ydo)/fa)',
+                 value = '-((Cf*ydo)/fa)',
                  order = {'QED':1})
 
 GC_50 = Coupling(name = 'GC_50',
@@ -210,7 +210,7 @@ GC_50 = Coupling(name = 'GC_50',
                  order = {'QED':1})
 
 GC_51 = Coupling(name = 'GC_51',
-                 value = '-((Cf*Gamma5*ye)/fa)',
+                 value = '-((Cf*ye)/fa)',
                  order = {'QED':1})
 
 GC_52 = Coupling(name = 'GC_52',
@@ -218,7 +218,7 @@ GC_52 = Coupling(name = 'GC_52',
                  order = {'QED':1})
 
 GC_53 = Coupling(name = 'GC_53',
-                 value = '-((Cf*Gamma5*ym)/fa)',
+                 value = '-((Cf*ym)/fa)',
                  order = {'QED':1})
 
 GC_54 = Coupling(name = 'GC_54',
@@ -226,7 +226,7 @@ GC_54 = Coupling(name = 'GC_54',
                  order = {'QED':1})
 
 GC_55 = Coupling(name = 'GC_55',
-                 value = '-((Cf*Gamma5*ys)/fa)',
+                 value = '-((Cf*ys)/fa)',
                  order = {'QED':1})
 
 GC_56 = Coupling(name = 'GC_56',
@@ -234,7 +234,7 @@ GC_56 = Coupling(name = 'GC_56',
                  order = {'QED':1})
 
 GC_57 = Coupling(name = 'GC_57',
-                 value = '-((Cf*Gamma5*yt)/fa)',
+                 value = '-((Cf*yt)/fa)',
                  order = {'QED':1})
 
 GC_58 = Coupling(name = 'GC_58',
@@ -242,7 +242,7 @@ GC_58 = Coupling(name = 'GC_58',
                  order = {'QED':1})
 
 GC_59 = Coupling(name = 'GC_59',
-                 value = '-((Cf*Gamma5*ytau)/fa)',
+                 value = '-((Cf*ytau)/fa)',
                  order = {'QED':1})
 
 GC_60 = Coupling(name = 'GC_60',
@@ -250,7 +250,7 @@ GC_60 = Coupling(name = 'GC_60',
                  order = {'QED':1})
 
 GC_61 = Coupling(name = 'GC_61',
-                 value = '-((Cf*Gamma5*yup)/fa)',
+                 value = '-((Cf*yup)/fa)',
                  order = {'QED':1})
 
 GC_62 = Coupling(name = 'GC_62',

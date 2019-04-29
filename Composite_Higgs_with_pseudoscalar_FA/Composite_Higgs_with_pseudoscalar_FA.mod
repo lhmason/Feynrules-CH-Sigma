@@ -15,7 +15,7 @@ FR$ModelInformation={
 
 FR$ClassesTranslation={};
 
-FR$InteractionOrderPerturbativeExpansion={{QCD, 0}, {QED, 0}, {NoBlockName[FRBlock], 0}, {Gamma5[1, 3] -> 1, 0}, {Gamma5[1, 4] -> 0, 0}, {Gamma5[2, 1] -> 0, 0}, {Gamma5[2, 2] -> 0, 0}, {Gamma5[2, 3] -> 0, 0}, {Gamma5[2, 4] -> 1, 0}, {Gamma5[3, 1] -> 1, 0}, {Gamma5[3, 2] -> 0, 0}, {Gamma5[3, 3] -> 0, 0}, {Gamma5[3, 4] -> 0, 0}, {Gamma5[4, 1] -> 0, 0}, {Gamma5[4, 2] -> 1, 0}, {Gamma5[4, 3] -> 0, 0}, {Gamma5[4, 4] -> 0, 0}};
+FR$InteractionOrderPerturbativeExpansion={{QCD, 0}, {QED, 0}, {NoBlockName[FRBlock], 0}, {Gam5[1, 3] -> 1, 0}, {Gam5[1, 4] -> 0, 0}, {Gam5[2, 1] -> 0, 0}, {Gam5[2, 2] -> 0, 0}, {Gam5[2, 3] -> 0, 0}, {Gam5[2, 4] -> 1, 0}, {Gam5[3, 1] -> 1, 0}, {Gam5[3, 2] -> 0, 0}, {Gam5[3, 3] -> 0, 0}, {Gam5[3, 4] -> 0, 0}, {Gam5[4, 1] -> 0, 0}, {Gam5[4, 2] -> 1, 0}, {Gam5[4, 3] -> 0, 0}, {Gam5[4, 4] -> 0, 0}};
 
 FR$GoldstoneList={S[2], S[3]};
 
@@ -359,12 +359,12 @@ M$FACouplings = {
      gc15R[e1x2_, e2x2_] -> -(yl[e1x2, e2x2]/Sqrt[2]),
      gc16L[e1x2_, e2x2_] -> -(Conjugate[yu[e2x2, e1x2]]/Sqrt[2]),
      gc16R[e1x2_, e2x2_] -> -(yu[e1x2, e2x2]/Sqrt[2]),
-     gc17L[e1x2_, e2x2_] -> -((Cf*Gamma5*Conjugate[yd[e2x2, e1x2]])/fa),
-     gc17R[e1x2_, e2x2_] -> (Cf*Gamma5*yd[e1x2, e2x2])/fa,
-     gc18L[e1x2_, e2x2_] -> -((Cf*Gamma5*Conjugate[yl[e2x2, e1x2]])/fa),
-     gc18R[e1x2_, e2x2_] -> (Cf*Gamma5*yl[e1x2, e2x2])/fa,
-     gc19L[e1x2_, e2x2_] -> -((Cf*Gamma5*Conjugate[yu[e2x2, e1x2]])/fa),
-     gc19R[e1x2_, e2x2_] -> (Cf*Gamma5*yu[e1x2, e2x2])/fa,
+     gc17L[e1x2_, e2x2_] -> -((Cf*Conjugate[yd[e2x2, e1x2]]*Ga[5])/fa),
+     gc17R[e1x2_, e2x2_] -> (Cf*Ga[5]*yd[e1x2, e2x2])/fa,
+     gc18L[e1x2_, e2x2_] -> -((Cf*Conjugate[yl[e2x2, e1x2]]*Ga[5])/fa),
+     gc18R[e1x2_, e2x2_] -> (Cf*Ga[5]*yl[e1x2, e2x2])/fa,
+     gc19L[e1x2_, e2x2_] -> -((Cf*Conjugate[yu[e2x2, e1x2]]*Ga[5])/fa),
+     gc19R[e1x2_, e2x2_] -> (Cf*Ga[5]*yu[e1x2, e2x2])/fa,
      gc20 -> EL,
      gc21 -> -4*CWa*EL,
      gc23 -> -EL^2,

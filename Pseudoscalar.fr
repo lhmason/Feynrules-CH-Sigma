@@ -7,42 +7,30 @@ M$PseudoscalarFields = {
     PropagatorLabel  -> "sc",
     PropagatorType   -> D,
     PropagatorArrow  -> None,
-    ParticleName     -> "Sigma",
-    FullName         -> "sc"
+    ParticleName     -> "o",
+    FullName         -> "o"
   }
 }
 
 M$ParametersPseudoscalar = {
 
-  Gamma5 == {
-    ParameterType -> External,
-    Unitary       -> True,
-    Value         -> {Gamma5[1,1] -> 0,  Gamma5[1,2] -> 0,         Gamma5[1,3] -> 1,  Gamma5[1,4] -> 0,
-                      Gamma5[2,1] -> 0,  Gamma5[2,2] -> 0,         Gamma5[2,3] -> 0,  Gamma5[2,4] -> 1,
-                      Gamma5[3,1] -> 1,  Gamma5[3,2] -> 0,         Gamma5[3,3] -> 0, Gamma5[3,4] -> 0,
-                      Gamma5[4,1] -> 0,  Gamma5[4,2] -> 1,         Gamma5[4,3] -> 0, Gamma5[4,4] -> 0},
-    Description -> "Gamma 5 Matrix"},
-
   Ct == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 2.2,
     Description   -> "Coeff of the SM top with sigma"
 },
 
   Cf == {
-    ParameterType -> External,
+    ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
-    Value         -> 2.2 vev/Sqrt[2],
+    Value         -> (2.2*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
     Description   -> "Coeff of the SM ferms with sigma"
 },
 
   fa == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 2.2,
     Description   -> "Inv coeff of the SM ferms with sigma"
 },
@@ -50,15 +38,13 @@ M$ParametersPseudoscalar = {
   Kg == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
-    Value         -> -7.1,
+    Value         -> -7.2,
     Description   -> "Coeff of the gauge fields with sigma"
 },
 
   Kw == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 7.6,
     Description   -> "Coeff of the gauge fields with sigma"
 },
@@ -66,7 +52,6 @@ M$ParametersPseudoscalar = {
   Kb == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 2.8,
     Description   -> "Coeff of the gauge fields with sigma"
 },
@@ -74,7 +59,6 @@ M$ParametersPseudoscalar = {
   kV == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 1,
     Description   -> "Coupling of Higgs to vectors"
 },
@@ -82,31 +66,27 @@ M$ParametersPseudoscalar = {
   kt == {
     ParameterType -> External,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> 1,
     Description   -> "Coupling of Higgs to tops"
 },
 
   Lambda == {
-    ParameterType -> External,
+    ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
-    Value         -> 4 Pi fa,
+    Value         -> {4 Pi fa},
     Description   -> "Log divergence"
 },
 
   gA == {
-    ParameterType -> External,
+    ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
-    Value         -> -gw/(4 cw),
+    Value         -> (-gw/(4 cw)),
     Description   -> "Log divergence"
 },
 
   CGa == {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> (gs^2 Kg)/(16 Pi^2 fa),
     Description   -> "Coefficient of L_haa"
 },
@@ -114,7 +94,6 @@ M$ParametersPseudoscalar = {
   CWa == {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> (gw^2 Kw)/(16 Pi^2 fa),
     Description   -> "Coefficient of L_haa"
 },
@@ -122,7 +101,6 @@ M$ParametersPseudoscalar = {
   CBa == {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> (g1^2 Kb)/(16 Pi^2 fa),
     Description   -> "Coefficient of L_haa"
 },
@@ -130,7 +108,6 @@ M$ParametersPseudoscalar = {
   Chaa == {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
     Value         -> (3 Ct^2 ymt^2 kt)/(8 Pi^2 fa^2 vev) Log[ (Lambda^2)/(ymt^2)],
     Description   -> "Coefficient of L_haa"
 },
@@ -138,9 +115,7 @@ M$ParametersPseudoscalar = {
   ChZa == {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
-    OrderBlock    -> 1,
-    Value         -> 1,
-    Value         -> (* (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],*)
+    Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
     Description   -> "Coefficient of LhZa"
 }
 }

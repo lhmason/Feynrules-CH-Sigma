@@ -14,7 +14,7 @@ M$ExtParams = {
 	Ct -> 2.2,
 	fa -> 2.2,
 	gA -> -gw/(4*cw),
-	Gamma5 -> Gamma5[1, 1] -> 0,
+	Gam5 -> Gam5[1, 1] -> 0,
 	Gf -> 0.0000116637,
 	Kb -> 2.8,
 	Kg -> -7.1,

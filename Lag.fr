@@ -56,9 +56,9 @@ LSigF := Block[{sp,cc,ff1,ff2,ff3,yuks,feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
 
   yuks = ExpandIndices[
-   - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, 2, ff1, cc].Gamma5.dR [sp, ff3, cc] sc   
-   - (I Cf)/fa yl[ff1, ff3] LLbar[sp, 2, ff1].Gamma5.lR [sp, ff3] sc       
-   - (I Cf)/fa yu[ff1, ff2] QLbar[sp, 1, ff1, cc].Gamma5.uR [sp, ff2, cc] sc, FlavorExpand -> SU2D];
+   - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] Ga[5] QLbar[sp, 2, ff1, cc].dR [sp, ff3, cc] sc   
+   - (I Cf)/fa yl[ff1, ff3] Ga[5] LLbar[sp, 2, ff1].lR [sp, ff3] sc       
+   - (I Cf)/fa yu[ff1, ff2] Ga[5] QLbar[sp, 1, ff1, cc].uR [sp, ff2, cc] sc, FlavorExpand -> SU2D];
   yuks = yuks /. { CKM[a_, b_] Conjugate[CKM[a_, c_]] -> IndexDelta[b, c], CKM[b_, a_] Conjugate[CKM[c_, a_]] -> IndexDelta[b, c]};
   yuks+HC[yuks]/.feynmangaugerules
  ];
@@ -70,7 +70,6 @@ LhaaSig := Block[{mu},
   ExpandIndices[Chaa H DC[sc,mu] DC[sc,mu] ]];
 
 LhZaSig := Block[{mu},
-  ExpandIndices[ChZa H Z[mu] DC[sc,mu] ]];
-  (* ExpandIndices[ChZa H DC[sc,mu] Z[mu] ]];*)
+   ExpandIndices[ChZa H DC[sc,mu] Z[mu] ]];
 
 LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSigF + LSigkin + LhaaSig  + LSigG + LhZaSig;  
