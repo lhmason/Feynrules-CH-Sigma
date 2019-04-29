@@ -35,7 +35,7 @@ M$ParametersPseudoscalar = {
     ParameterType -> External,
     BlockName     -> SIGMA,
     OrderBlock    -> 1,
-    Value         -> 2.2,
+    Value         -> 2.2 vev/Sqrt[2],
     Description   -> "Coeff of the SM ferms with sigma"
 },
 
@@ -139,7 +139,8 @@ M$ParametersPseudoscalar = {
     ParameterType -> Internal,
     BlockName     -> SIGMA,
     OrderBlock    -> 1,
-    Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
-    Description   -> "Coefficient of L_hZa"
+    Value         -> 1,
+    Value         -> (* (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],*)
+    Description   -> "Coefficient of LhZa"
 }
 }
