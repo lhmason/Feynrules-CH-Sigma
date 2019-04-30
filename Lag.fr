@@ -1,7 +1,11 @@
 
-(* ************************** *)
-(* *****   Lagrangian   ***** *)
-(* ************************** *)
+(* -------------------------  *)
+(*         Lagrangian         *)
+(* -------------------------  *)
+
+(* ---------------------  *)
+(*         SM Lag         *)
+(* ---------------------  *)
 
 LGauge := Block[{mu,nu,ii,aa}, 
   ExpandIndices[-1/4 FS[B,mu,nu] FS[B,mu,nu] - 1/4 FS[Wi,mu,nu,ii] FS[Wi,mu,nu,ii] - 1/4 FS[G,mu,nu,aa] FS[G,mu,nu,aa], FlavorExpand->SU2W]];
@@ -12,9 +16,6 @@ LGhost := Block[{LGh1,LGhw,LGhs,LGhphi,mu, generators,gh,ghbar,Vectorize,phi1,ph
   LGhw = -ghWibar.del[DC[ghWi,mu],mu];
   LGhs = -ghGbar.del[DC[ghG,mu],mu];
 
-  (* Scalar pieces: see Peskin pages 739-742 *)
-  (* phi1 and phi2 are the real degrees of freedom of GP *)
-  (* Vectorize transforms a doublet in a vector in the phi-basis, i.e. the basis of real degrees of freedom *)
   gh    = {ghB, ghWi[1], ghWi[2], ghWi[3]};
   ghbar = {ghBbar, ghWibar[1], ghWibar[2], ghWibar[3]};
   generators = {-I/2 g1 IdentityMatrix[2], -I/2 gw PauliSigma[1], -I/2 gw PauliSigma[2], -I/2 gw PauliSigma[3]};
@@ -48,28 +49,40 @@ LYukawa := Block[{sp,ii,jj,cc,ff1,ff2,ff3,yuk,feynmangaugerules},
   yuk+HC[yuk]/.feynmangaugerules
  ];
 
-LSigkin := Block[{mu},
-  ExpandIndices[
-  1/2 DC[sc,mu] DC[sc,mu] -1/2 Msc^2 sc sc]];
+(* -------------------------------  *)
+(*         Pseudoscalar Lag         *)
+(* -------------------------------  *)
 
-LSigF := Block[{sp,cc,ff1,ff2,ff3,yuks,feynmangaugerules},
+(* --- Kinetic part --- *)
+
+LEtakin := Block[{mu},
+  ExpandIndices[
+  1/2 DC[Eta,mu] DC[Eta,mu] -1/2 MEta^2 Eta Eta]];
+
+(* --- Fermion coupling part --- *)
+
+LEtaF := Block[{sp,cc,ff1,ff2,ff3,yuks,feynmangaugerules},
   feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
 
   yuks = ExpandIndices[
-   - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] Ga[5] QLbar[sp, 2, ff1, cc].dR [sp, ff3, cc] sc   
-   - (I Cf)/fa yl[ff1, ff3] Ga[5] LLbar[sp, 2, ff1].lR [sp, ff3] sc       
-   - (I Cf)/fa yu[ff1, ff2] Ga[5] QLbar[sp, 1, ff1, cc].uR [sp, ff2, cc] sc, FlavorExpand -> SU2D];
+   - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] Ga[5] QLbar[sp, 2, ff1, cc].dR [sp, ff3, cc] Eta   
+   - (I Cf)/fa yl[ff1, ff3] Ga[5] LLbar[sp, 2, ff1].lR [sp, ff3] Eta       
+   - (I Cf)/fa yu[ff1, ff2] Ga[5] QLbar[sp, 1, ff1, cc].uR [sp, ff2, cc] Eta, FlavorExpand -> SU2D];
   yuks = yuks /. { CKM[a_, b_] Conjugate[CKM[a_, c_]] -> IndexDelta[b, c], CKM[b_, a_] Conjugate[CKM[c_, a_]] -> IndexDelta[b, c]};
   yuks+HC[yuks]/.feynmangaugerules
  ];
 
-LSigG := Block[{mu,nu,ii,aa},
-  ExpandIndices[CBa FS[B,mu,nu] Dual[FS][B,mu,nu] sc + CWa FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] sc + CGa FS[G,mu,nu,aa] Dual[FS][G,mu,nu,aa] sc, FlavorExpand->SU2W]];
+(* --- Gauge coupling part --- *)
 
-LhaaSig := Block[{mu},
-  ExpandIndices[Chaa H DC[sc,mu] DC[sc,mu] ]];
+LEtaG := Block[{mu,nu,ii,aa},
+  ExpandIndices[CBa FS[B,mu,nu] Dual[FS][B,mu,nu] Eta + CWa FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] Eta + CGa FS[G,mu,nu,aa] Dual[FS][G,mu,nu,aa] Eta, FlavorExpand->SU2W]];
 
-LhZaSig := Block[{mu},
-   ExpandIndices[ChZa H DC[sc,mu] Z[mu] ]];
+(* --- Loop level couplings --- *)
 
-LCHSig:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LSigF + LSigkin + LhaaSig  + LSigG + LhZaSig;  
+LhaaEta := Block[{mu},
+  ExpandIndices[Chaa H DC[Eta,mu] DC[Eta,mu] ]];
+
+LhZaEta := Block[{mu},
+   ExpandIndices[ChZa H DC[Eta,mu] Z[mu] ]];
+
+LCHEta:= LGauge + LFermions + LHiggs + LYukawa + LGhost + LEtaF + LEtakin + LhaaEta  + LEtaG + LhZaEta;  

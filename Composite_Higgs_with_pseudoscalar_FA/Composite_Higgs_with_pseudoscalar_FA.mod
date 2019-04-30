@@ -15,7 +15,7 @@ FR$ModelInformation={
 
 FR$ClassesTranslation={};
 
-FR$InteractionOrderPerturbativeExpansion={{QCD, 0}, {QED, 0}, {NoBlockName[FRBlock], 0}, {Gam5[1, 3] -> 1, 0}, {Gam5[1, 4] -> 0, 0}, {Gam5[2, 1] -> 0, 0}, {Gam5[2, 2] -> 0, 0}, {Gam5[2, 3] -> 0, 0}, {Gam5[2, 4] -> 1, 0}, {Gam5[3, 1] -> 1, 0}, {Gam5[3, 2] -> 0, 0}, {Gam5[3, 3] -> 0, 0}, {Gam5[3, 4] -> 0, 0}, {Gam5[4, 1] -> 0, 0}, {Gam5[4, 2] -> 1, 0}, {Gam5[4, 3] -> 0, 0}, {Gam5[4, 4] -> 0, 0}};
+FR$InteractionOrderPerturbativeExpansion={{QCD, 0}, {NP, 0}, {QED, 0}};
 
 FR$GoldstoneList={S[2], S[3]};
 

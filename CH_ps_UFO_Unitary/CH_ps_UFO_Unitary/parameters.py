@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Tue 30 Apr 2019 16:24:36
+# Date: Tue 30 Apr 2019 14:32:42
 
 
 
@@ -448,7 +448,7 @@ CBa = Parameter(name = 'CBa',
 Cf = Parameter(name = 'Cf',
                nature = 'internal',
                type = 'real',
-               value = '(Ct*vev)/cmath.sqrt(2)',
+               value = '1.5556349186104046*vev',
                texname = '\\text{Cf}')
 
 Chaa = Parameter(name = 'Chaa',

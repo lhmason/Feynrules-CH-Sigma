@@ -1,14 +1,14 @@
 M$PseudoscalarFields = {
   S[4] == {
-    ClassName        -> sc,
+    ClassName        -> Eta,
     SelfConjugate    -> True,
-    Mass             -> {Msc, 50.0},
-    Width            -> {Wsc, 1.0},
-    PropagatorLabel  -> "sc",
+    Mass             -> {MEta, 50.0},
+    Width            -> {WEta, 1.0},
+    PropagatorLabel  -> "n",
     PropagatorType   -> D,
     PropagatorArrow  -> None,
-    ParticleName     -> "o",
-    FullName         -> "o"
+    ParticleName     -> "n",
+    FullName         -> "Eta"
   }
 }
 
@@ -16,106 +16,121 @@ M$ParametersPseudoscalar = {
 
   Ct == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> 2.2,
-    Description   -> "Coeff of the SM top with sigma"
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the SM top with eta"
 },
 
   Cf == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
-    Value         -> (2.2*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
-    Description   -> "Coeff of the SM ferms with sigma"
+    BlockName     -> ETA,
+    Value         -> (Ct*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the SM ferms with eta"
 },
 
   fa == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
-    Value         -> 2.2,
-    Description   -> "Inv coeff of the SM ferms with sigma"
+    BlockName     -> ETA,
+    Value         -> 1.,
+    InteractionOrder -> {NP,1},
+    Description   -> "Inv coeff of the SM ferms with eta"
 },
 
   Kg == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> -7.2,
-    Description   -> "Coeff of the gauge fields with sigma"
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the gauge fields with eta"
 },
 
   Kw == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> 7.6,
-    Description   -> "Coeff of the gauge fields with sigma"
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the gauge fields with eta"
 },
 
   Kb == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> 2.8,
-    Description   -> "Coeff of the gauge fields with sigma"
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the gauge fields with eta"
 },
 
   kV == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> 1,
+    InteractionOrder -> {NP,1},
     Description   -> "Coupling of Higgs to vectors"
 },
 
   kt == {
     ParameterType -> External,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> 1,
+    InteractionOrder -> {NP,1},
     Description   -> "Coupling of Higgs to tops"
 },
 
   Lambda == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> {4 Pi fa},
+    InteractionOrder -> {NP,1},
     Description   -> "Log divergence"
 },
 
   gA == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (-gw/(4 cw)),
+    InteractionOrder -> {NP,1},
     Description   -> "Log divergence"
 },
 
   CGa == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (gs^2 Kg)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
     Description   -> "Coefficient of L_haa"
 },
 
   CWa == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (gw^2 Kw)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
     Description   -> "Coefficient of L_haa"
 },
 
   CBa == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (g1^2 Kb)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
     Description   -> "Coefficient of L_haa"
 },
 
   Chaa == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (3 Ct^2 ymt^2 kt)/(8 Pi^2 fa^2 vev) Log[ (Lambda^2)/(ymt^2)],
+    InteractionOrder -> {NP,1},
     Description   -> "Coefficient of L_haa"
 },
 
   ChZa == {
     ParameterType -> Internal,
-    BlockName     -> SIGMA,
+    BlockName     -> ETA,
     Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
+    InteractionOrder -> {NP,1},
     Description   -> "Coefficient of LhZa"
 }
 }

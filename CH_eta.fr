@@ -1,5 +1,5 @@
 (***************************************************************************************************************)
-(******                       This is the FeynRules mod-file for a CH model with pc                       ******)
+(******                 This is the FeynRules mod-file for a CH model with pseudo-scalar                  ******)
 (******                                                                                                   ******)
 (******     Authors: Lara Mason                                                                           ******)
 (******                                                                                                   ******)
@@ -16,7 +16,7 @@ M$ModelName = "Composite Higgs with pseudoscalar";
 
 M$Information = {
   Authors      -> {"L. Mason"}, 
-  Version      -> "1.4.6",
+  Version      -> "2",
   Date         -> "26. 04. 2019",
   Institutions -> {"SA-CERN"},
   Emails       -> {"lara.mason@live.com"}
@@ -35,17 +35,9 @@ FR$RmDblExt = { ymb -> MB, ymc -> MC, ymdo -> MD, yme -> Me,
 (* ************************** *)
 (* ******  References  ****** *)
 (* arXiv 1610.00009 Z->Sh coupling *)
-(* Revealing timid pseudo-scalars with taus at the LHC (Giacomo): adding a pseudoscalar sigma *)
+(* Revealing timid pseudo-scalars with taus at the LHC (Giacomo): adding a pseudoscalar eta *)
 (* arXiv 1809.09146v1 SU(4)/Sp(4) *)
 (* ************************** *)
-
-(* ************************** *)
-(* *****  Change  log   ***** *)
-(* ************************** *)
-
-(* Created S[4] Sigma definition                                                *)
-(* Added the LSig Lag pieces without the ferminon masses                        *)
-(* Added the Fmunu gauge pieces to LSig                                         *)
 
 (* ************************** *)
 (* *****      vevs      ***** *)
@@ -105,6 +97,7 @@ IndexStyle[Generation, f];
 
 M$InteractionOrderHierarchy = {
   {QCD, 1},
+  {NP,1},
   {QED, 2}
 };
 
