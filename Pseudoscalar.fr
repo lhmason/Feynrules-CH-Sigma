@@ -3,134 +3,118 @@ M$PseudoscalarFields = {
     ClassName        -> eta,
     SelfConjugate    -> True,
     Mass             -> {Meta, 50.0},
-    Width            -> {Weta, 1.0},
-    PropagatorLabel  -> "eta",
-    PropagatorType   -> D,
-    PropagatorArrow  -> None
-    (* ParticleName     -> "eta", *)
-    (* FullName         -> "eta" *)
+    Width            -> {Weta, 1.1}
   }
 }
 
 M$ParametersPseudoscalar = {
 
-  Ct == {
-    ParameterType -> External,
-    BlockName     -> ETA,
-    Value         -> 2.2,
-    InteractionOrder -> {NP, 1},
-    Description   -> "Coeff of the SM top with eta"
-},
-
   Cf == {
-    ParameterType -> Internal,
+    TeX           -> Subscript[C,f],
+    ParameterType -> External,
+    Value         -> 2.2,
     BlockName     -> ETA,
-    Value         -> (2.2*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
-    InteractionOrder -> {NP, 1},
+    OrderBlock    -> 1,
     Description   -> "Coeff of the SM ferms with eta"
-},
+  },
 
   fa == {
-    ParameterType -> External,
-    BlockName     -> ETA,
-    InteractionOrder -> {NP,1},
-    Value         -> 1.,
-    Description   -> "Inv coeff of the SM ferms with eta"
-},
+    ParameterType    -> External,
+    BlockName        -> ETA,
+    OrderBlock       -> 0,
+    TeX              -> Subscript[f,a],
+    InteractionOrder -> {NP, -1},
+    Value            -> 1000.0, (* 1 TeV *)
+    Description      -> "Inv coeff of the SM ferms with eta"
+  },
 
   Kg == {
+    TeX           -> Subscript[K,g],
     ParameterType -> External,
     BlockName     -> ETA,
-    InteractionOrder -> {NP,1},
+    OrderBlock    -> 2,
     Value         -> -7.2,
     Description   -> "Coeff of the gauge fields with eta"
-},
+  },
 
   Kw == {
+    TeX           -> Subscript[K,w],
     ParameterType -> External,
     BlockName     -> ETA,
+    OrderBlock    -> 3,
     Value         -> 7.6,
-    InteractionOrder -> {NP,1},
     Description   -> "Coeff of the gauge fields with eta"
-},
+  },
 
   Kb == {
+    TeX           -> Subscript[K,b],
     ParameterType -> External,
     BlockName     -> ETA,
+    OrderBlock    -> 4,
     Value         -> 2.8,
-    InteractionOrder -> {NP,1},
     Description   -> "Coeff of the gauge fields with eta"
-},
+  },
 
   kV == {
+    TeX           -> Subscript[\[Kappa],V],
     ParameterType -> External,
     BlockName     -> ETA,
-    Value         -> 1,
-    InteractionOrder -> {NP,1},
+    OrderBlock    -> 5,
+    Value         -> 1.01,
     Description   -> "Coupling of Higgs to vectors"
-},
+  },
 
   kt == {
+    TeX           -> Subscript[\[Kappa],t],
     ParameterType -> External,
     BlockName     -> ETA,
-    Value         -> 1,
-    InteractionOrder -> {NP,1},
+    OrderBlock    -> 6,
+    Value         -> 1.1,
     Description   -> "Coupling of Higgs to tops"
-},
+  }
 
-  Lambda == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    InteractionOrder -> {NP,1},
-    Value         -> {4 Pi fa},
-    Description   -> "Log divergence"
-},
-
-  gA == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (-gw/(4 cw)),
-    InteractionOrder -> {NP,1},
-    Description   -> "Log divergence"
-},
-
-  CGa == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (gs^2 Kg)/(16 Pi^2 fa),
-    InteractionOrder -> {NP,1},
-    Description   -> "Coefficient of L_haa"
-},
-
-  CWa == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (gw^2 Kw)/(16 Pi^2 fa),
-    InteractionOrder -> {NP,1},
-    Description   -> "Coefficient of L_haa"
-},
-
-  CBa == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (g1^2 Kb)/(16 Pi^2 fa),
-    InteractionOrder -> {NP,1},
-    Description   -> "Coefficient of L_haa"
-},
-
-  Chaa == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (3 Ct^2 ymt^2 kt)/(8 Pi^2 fa^2 vev) Log[ (Lambda^2)/(ymt^2)],
-    InteractionOrder -> {NP,1},
-    Description   -> "Coefficient of L_haa"
-},
-
-  ChZa == {
-    ParameterType -> Internal,
-    BlockName     -> ETA,
-    Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
-    InteractionOrder -> {NP,1},
-    Description   -> "Coefficient of LhZa"
 }
-}
+
+(* -------------------------------  *)
+(*         Pseudoscalar Lag         *)
+(* -------------------------------  *)
+
+(* --- Kinetic part --- *)
+
+LPskin := Block[{mu},
+  ExpandIndices[
+  1/2 DC[eta,mu]^2 -1/2 Meta^2 eta^2]];
+
+(* --- Fermion coupling part --- *)
+
+LPsF := Block[{sp,cc,ff1,ff2,ff3,s,r,yuks,feynmangaugerules},
+  feynmangaugerules = If[Not[FeynmanGauge], {G0|GP|GPbar ->0}, {}];
+
+  yuks = ExpandIndices[
+    - (I Cf)/fa vev/Sqrt[2] yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] Phi[ii] eta
+    - (I Cf)/fa vev/Sqrt[2] yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] Phi[ii] eta
+    - (I Cf)/fa vev/Sqrt[2] yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] Phibar[jj] Eps[ii,jj] eta, FlavorExpand -> SU2D];
+  yuks = yuks /. { CKM[a_, b_] Conjugate[CKM[a_, c_]] -> IndexDelta[b, c], CKM[b_, a_] Conjugate[CKM[c_, a_]] -> IndexDelta[b, c]};
+  yuks+HC[yuks]/.feynmangaugerules
+  (*yuks+HC[yuks]/.feynmangaugerules*)
+ ];
+
+(* --- Gauge coupling part --- *)
+
+LPsG := Block[{mu,nu,ii}, (* factor 2 compensates for 1/2 in toolbox.m - check this *)
+  ExpandIndices[
+       g1^2 Kb/(16 Pi^2 fa) FS[B,mu,nu]     2*Dual[FS][B,mu,nu]     eta 
+     + gw^2 Kw/(16 Pi^2 fa) FS[Wi,mu,nu,ii] 2*Dual[FS][Wi,mu,nu,ii] eta 
+     + gs^2 Kg/(16 Pi^2 fa) FS[G,mu,nu,aa]  2*Dual[FS][G,mu,nu,aa]  eta, FlavorExpand->SU2W]];
+
+(* --- Loop level couplings --- *)
+
+LhaaPs := Block[{mu},
+  ExpandIndices[
+       3 Cf^2 MT^2 kt /         (8 Pi^2 fa^2 vev)  Log[(4 Pi fa)^2/MT^2] H DC[eta,mu] DC[eta,mu] ]];
+
+LhZaPs := Block[{mu},
+   ExpandIndices[
+       3 Cf   MT^2 gw (kt-kV) / (8 cw Pi^2 fa vev) Log[(4 Pi fa)^2/MT^2] H DC[eta,mu] Z[mu] ]];
+
+LCHPs:= LPsF + LPskin + LhaaPs + LhZaPs + LPsG ;

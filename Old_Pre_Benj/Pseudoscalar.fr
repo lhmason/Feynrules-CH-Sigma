@@ -1,0 +1,136 @@
+M$PseudoscalarFields = {
+  S[4] == {
+    ClassName        -> eta,
+    SelfConjugate    -> True,
+    Mass             -> {Meta, 50.0},
+    Width            -> {Weta, 1.0},
+    PropagatorLabel  -> "eta",
+    PropagatorType   -> D,
+    PropagatorArrow  -> None
+    (* ParticleName     -> "eta", *)
+    (* FullName         -> "eta" *)
+  }
+}
+
+M$ParametersPseudoscalar = {
+
+  Ct == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    Value         -> 2.2,
+    InteractionOrder -> {NP, 1},
+    Description   -> "Coeff of the SM top with eta"
+},
+
+  Cf == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (2.2*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
+    InteractionOrder -> {NP, 1},
+    Description   -> "Coeff of the SM ferms with eta"
+},
+
+  fa == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    InteractionOrder -> {NP,1},
+    Value         -> 1.,
+    Description   -> "Inv coeff of the SM ferms with eta"
+},
+
+  Kg == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    InteractionOrder -> {NP,1},
+    Value         -> -7.2,
+    Description   -> "Coeff of the gauge fields with eta"
+},
+
+  Kw == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    Value         -> 7.6,
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the gauge fields with eta"
+},
+
+  Kb == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    Value         -> 2.8,
+    InteractionOrder -> {NP,1},
+    Description   -> "Coeff of the gauge fields with eta"
+},
+
+  kV == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    Value         -> 1,
+    InteractionOrder -> {NP,1},
+    Description   -> "Coupling of Higgs to vectors"
+},
+
+  kt == {
+    ParameterType -> External,
+    BlockName     -> ETA,
+    Value         -> 1,
+    InteractionOrder -> {NP,1},
+    Description   -> "Coupling of Higgs to tops"
+},
+
+  Lambda == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    InteractionOrder -> {NP,1},
+    Value         -> {4 Pi fa},
+    Description   -> "Log divergence"
+},
+
+  gA == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (-gw/(4 cw)),
+    InteractionOrder -> {NP,1},
+    Description   -> "Log divergence"
+},
+
+  CGa == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (gs^2 Kg)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
+    Description   -> "Coefficient of L_haa"
+},
+
+  CWa == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (gw^2 Kw)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
+    Description   -> "Coefficient of L_haa"
+},
+
+  CBa == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (g1^2 Kb)/(16 Pi^2 fa),
+    InteractionOrder -> {NP,1},
+    Description   -> "Coefficient of L_haa"
+},
+
+  Chaa == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (3 Ct^2 ymt^2 kt)/(8 Pi^2 fa^2 vev) Log[ (Lambda^2)/(ymt^2)],
+    InteractionOrder -> {NP,1},
+    Description   -> "Coefficient of L_haa"
+},
+
+  ChZa == {
+    ParameterType -> Internal,
+    BlockName     -> ETA,
+    Value         -> (3 Ct^2 ymt^2 gA)/(2 Pi^2 fa vev) (kt - kV) Log[ (Lambda^2)/(ymt^2)],
+    InteractionOrder -> {NP,1},
+    Description   -> "Coefficient of LhZa"
+}
+}

@@ -1,7 +1,7 @@
 (***************************************************************************************************************)
 (******                 This is the FeynRules mod-file for a CH model with pseudo-scalar                  ******)
 (******                                                                                                   ******)
-(******     Authors: Lara Mason, Benjamin Fuks                                                            ******)
+(******     Authors: Lara Mason                                                                           ******)
 (******                                                                                                   ******)
 (****** Choose whether Feynman gauge is desired.                                                          ******)
 (****** If set to False, unitary gauge is assumed.                                                          ****)
@@ -12,15 +12,14 @@
 (* ************************** *)
 (* *****  Information   ***** *)
 (* ************************** *)
-M$ModelName = "CHpseudo";
+M$ModelName = "Composite Higgs with pseudoscalar";
 
 M$Information = {
-  Authors      -> {"L. Mason", "B. Fuks"},
-  Version      -> "1.1",
-  Date         -> "03.05.2019",
-  Institutions -> {"SA-CERN", "LPTHE / Sorbonne U."},
-  Emails       -> {"lara.mason@live.com", "fuks@lpthe.jussieu.fr"},
-  URLs         -> ""
+  Authors      -> {"L. Mason"}, 
+  Version      -> "2",
+  Date         -> "26. 04. 2019",
+  Institutions -> {"SA-CERN"},
+  Emails       -> {"lara.mason@live.com"}
 };
 
 FeynmanGauge = True;
@@ -73,6 +72,7 @@ M$GaugeGroups = {
   } 
 };
 
+
 (* ************************** *)
 (* *****    Indices     ***** *)
 (* ************************** *)
@@ -89,11 +89,17 @@ IndexStyle[Gluon,      a];
 IndexStyle[Colour,     m];
 IndexStyle[Generation, f];
 
+
 (* ************************** *)
-(* *****  Orders        ***** *)
+(* *** Interaction orders *** *)
+(* ***  (as used by mg5)  *** *)
 (* ************************** *)
-M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {NP,1}};
-M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {NP,2}};
+
+M$InteractionOrderHierarchy = {
+  {QCD, 1},
+  {NP,1},
+  {QED, 2}
+};
 
 
 (* ************************** *)
@@ -117,10 +123,12 @@ GaugeXi[ U[4]  ] = GaugeXi[G];
 
 Get["SM_parts.fr"];
 
+Get["Lag.fr"];
+
 Get["Pseudoscalar.fr"];
 
 M$Parameters = Join[M$Parameters, M$ParametersPseudoscalar];
 
 M$ClassesDescription = Join[M$ClassesDescription, M$PseudoscalarFields];
 
-LSMps:= LSM + LCHPs;
+
