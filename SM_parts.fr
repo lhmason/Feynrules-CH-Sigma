@@ -468,6 +468,15 @@ M$ClassesDescription = {
     QuantumNumbers -> {Y -> -1},
     Definitions    -> { lR[sp1_,ff_] :> Module[{sp2}, ProjP[sp1,sp2] l[sp2,ff]] }
   },
+  F[122] == { 
+    ClassName      -> Ga5lR, 
+    Unphysical     -> True, 
+    Indices        -> {Index[Generation]},
+    FlavorIndex    -> Generation,
+    SelfConjugate  -> False,
+    QuantumNumbers -> {Y -> -1},
+    Definitions    -> { Ga5lR[sp1_,ff_] :> Module[{sp2}, Ga[5,sp1,-1] ProjP[-1,sp2] l[sp2,ff]] }
+  },
   F[13] == { 
     ClassName      -> QL, 
     Unphysical     -> True, 
@@ -488,6 +497,15 @@ M$ClassesDescription = {
     QuantumNumbers -> {Y -> 2/3},
     Definitions    -> { uR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] uq[sp2,ff,cc]] }
   },
+  F[142] == { 
+    ClassName      -> Ga5uR, 
+    Unphysical     -> True, 
+    Indices        -> {Index[Generation], Index[Colour]},
+    FlavorIndex    -> Generation,
+    SelfConjugate  -> False,
+    QuantumNumbers -> {Y -> 2/3},
+    Definitions    -> { Ga5uR[sp1_,ff_,cc_] :> Module[{sp2}, Ga[5,sp1,-1] ProjP[-1,sp2] uq[sp2,ff,cc]] }
+  },
   F[15] == { 
     ClassName      -> dR, 
     Unphysical     -> True, 
@@ -496,6 +514,15 @@ M$ClassesDescription = {
     SelfConjugate  -> False,
     QuantumNumbers -> {Y -> -1/3},
     Definitions    -> { dR[sp1_,ff_,cc_] :> Module[{sp2}, ProjP[sp1,sp2] dq[sp2,ff,cc]] }
+  },
+  F[152] == { 
+    ClassName      -> Ga5dR, 
+    Unphysical     -> True, 
+    Indices        -> {Index[Generation], Index[Colour]},
+    FlavorIndex    -> Generation,
+    SelfConjugate  -> False,
+    QuantumNumbers -> {Y -> -1/3},
+    Definitions    -> { Ga5dR[sp1_,ff_,cc_] :> Module[{sp2}, Ga[5,sp1,s] ProjP[s,sp2] dq[sp2,ff,cc]] }
   },
 
 (* Higgs: physical scalars  *)

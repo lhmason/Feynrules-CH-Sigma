@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Tue 30 Apr 2019 14:32:42
+# Date: Sat 4 May 2019 10:42:06
 
 
 
@@ -265,11 +265,11 @@ MH = Parameter(name = 'MH',
                lhablock = 'MASS',
                lhacode = [ 25 ])
 
-MEta = Parameter(name = 'MEta',
+Meta = Parameter(name = 'Meta',
                  nature = 'external',
                  type = 'real',
                  value = 50.,
-                 texname = '\\text{MEta}',
+                 texname = '\\text{Meta}',
                  lhablock = 'MASS',
                  lhacode = [ 9000005 ])
 
@@ -305,11 +305,11 @@ WH = Parameter(name = 'WH',
                lhablock = 'DECAY',
                lhacode = [ 25 ])
 
-WEta = Parameter(name = 'WEta',
+Weta = Parameter(name = 'Weta',
                  nature = 'external',
                  type = 'real',
                  value = 1.,
-                 texname = '\\text{WEta}',
+                 texname = '\\text{Weta}',
                  lhablock = 'DECAY',
                  lhacode = [ 9000005 ])
 

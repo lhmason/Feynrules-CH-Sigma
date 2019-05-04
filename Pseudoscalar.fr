@@ -1,14 +1,14 @@
 M$PseudoscalarFields = {
   S[4] == {
-    ClassName        -> Eta,
+    ClassName        -> eta,
     SelfConjugate    -> True,
-    Mass             -> {MEta, 50.0},
-    Width            -> {WEta, 1.0},
-    PropagatorLabel  -> "n",
+    Mass             -> {Meta, 50.0},
+    Width            -> {Weta, 1.0},
+    PropagatorLabel  -> "eta",
     PropagatorType   -> D,
-    PropagatorArrow  -> None,
-    ParticleName     -> "n",
-    FullName         -> "Eta"
+    PropagatorArrow  -> None
+    (* ParticleName     -> "eta", *)
+    (* FullName         -> "eta" *)
   }
 }
 
@@ -18,31 +18,31 @@ M$ParametersPseudoscalar = {
     ParameterType -> External,
     BlockName     -> ETA,
     Value         -> 2.2,
-    InteractionOrder -> {NP,1},
+    InteractionOrder -> {NP, 1},
     Description   -> "Coeff of the SM top with eta"
 },
 
   Cf == {
     ParameterType -> Internal,
     BlockName     -> ETA,
-    Value         -> (Ct*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
-    InteractionOrder -> {NP,1},
+    Value         -> (2.2*vev/Sqrt[2]), (* the vev/s2 cancels the contribs from the Yuk coupling *)
+    InteractionOrder -> {NP, 1},
     Description   -> "Coeff of the SM ferms with eta"
 },
 
   fa == {
     ParameterType -> External,
     BlockName     -> ETA,
-    Value         -> 1.,
     InteractionOrder -> {NP,1},
+    Value         -> 1.,
     Description   -> "Inv coeff of the SM ferms with eta"
 },
 
   Kg == {
     ParameterType -> External,
     BlockName     -> ETA,
-    Value         -> -7.2,
     InteractionOrder -> {NP,1},
+    Value         -> -7.2,
     Description   -> "Coeff of the gauge fields with eta"
 },
 
@@ -81,8 +81,8 @@ M$ParametersPseudoscalar = {
   Lambda == {
     ParameterType -> Internal,
     BlockName     -> ETA,
-    Value         -> {4 Pi fa},
     InteractionOrder -> {NP,1},
+    Value         -> {4 Pi fa},
     Description   -> "Log divergence"
 },
 

@@ -47,4 +47,4 @@ gauge = [0]
 
 __author__ = "L. Mason"
 __date__ = "26. 04. 2019"
-__version__= "1.4.6"
+__version__= "2"
