@@ -1,6 +1,6 @@
 # This file was automatically created by FeynRules 2.3.32
 # Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
-# Date: Sat 4 May 2019 15:32:53
+# Date: Sun 5 May 2019 18:02:15
 
 
 from object_library import all_orders, CouplingOrder
@@ -15,6 +15,6 @@ QED = CouplingOrder(name = 'QED',
                     hierarchy = 2)
 
 NP = CouplingOrder(name = 'NP',
-                   expansion_order = 1,
+                   expansion_order = 2,
                    hierarchy = 1)
 

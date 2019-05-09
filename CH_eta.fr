@@ -115,7 +115,7 @@ GaugeXi[ U[31] ] = GaugeXi[W];
 GaugeXi[ U[32] ] = GaugeXi[W];
 GaugeXi[ U[4]  ] = GaugeXi[G];
 
-Get["SM_parts.fr"];
+Get["SM.fr"];
 
 Get["Pseudoscalar.fr"];
 

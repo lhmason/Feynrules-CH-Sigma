@@ -56,7 +56,8 @@ M$ParametersPseudoscalar = {
   },
 
   kV == {
-    TeX           -> Subscript[\[Kappa],V],
+    TeX           -> Sub§:w
+script[\[Kappa],V],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 5,
