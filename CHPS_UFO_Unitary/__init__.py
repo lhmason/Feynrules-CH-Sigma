@@ -42,7 +42,7 @@ else:
    all_CTvertices = CT_vertices.all_CTvertices
 
 
-gauge = [0]
+gauge = [0, 1]
 
 
 __author__ = "L. Mason, B. Fuks"

@@ -56,7 +56,8 @@ M$ParametersPseudoscalar = {
   },
 
   kV == {
-    TeX           -> Subscript[\[Kappa],V],
+    TeX           -> Sub§:w
+script[\[Kappa],V],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 5,
@@ -96,6 +97,7 @@ LPsF := Block[{sp,cc,ff1,ff2,ff3,s,r,yuks,feynmangaugerules},
     - (I Cf)/fa vev/Sqrt[2] yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] Phibar[jj] Eps[ii,jj] eta, FlavorExpand -> SU2D];
   yuks = yuks /. { CKM[a_, b_] Conjugate[CKM[a_, c_]] -> IndexDelta[b, c], CKM[b_, a_] Conjugate[CKM[c_, a_]] -> IndexDelta[b, c]};
   yuks+HC[yuks]/.feynmangaugerules
+  (*yuks+HC[yuks]/.feynmangaugerules*)
  ];
 
 (* --- Gauge coupling part --- *)

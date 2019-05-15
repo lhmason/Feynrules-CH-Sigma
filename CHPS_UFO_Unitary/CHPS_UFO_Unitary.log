@@ -1,0 +1,190 @@
+# This file was automatically created by FeynRules 2.3.32
+# Mathematica version: 11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)
+# Date: Wed 15 May 2019 10:42:55
+
+
+# 
+# This is the logfile for the model CHpseudo
+
+# Authors: L. Mason, B. Fuks
+# Model version: 1.1
+# Checking the Quantum numbers
+   * Electric charge defined.
+# Checking the Lagrangians
+   * All Lagrangians are ok.
+#
+# Particle definitions
+#
+
+   * No particles removed. All particles correspond to GenInt setup.
+
+# Automatically assigned PDG numbers
+   * Assigned PDG number 9000001 to particle ghA
+   * Assigned PDG number 9000002 to particle ghZ
+   * Assigned PDG number 9000003 to particle ghWp
+   * Assigned PDG number 9000004 to particle ghWm
+   * Assigned PDG number 9000005 to particle eta
+
+
+# Compulsory PDG codes:
+   * Class SM leptons complete.
+   * Class SM neutrinos complete.
+   * Class SM quarks complete.
+   * Class SM gauge bosons complete.
+#
+# Parameter definitions
+#
+
+   * All parameters are ok.
+
+
+# Vertices
+   * Calling FeynmanRules for 1 Lagrangians.
+   * Number of classes vertices: 63
+   * Number of flavored vertices: 103
+   * Saved vertices in InterfaceRun[ 1 ].
+   * Checked QNumber conservation.
+      - Quantum number GhostNumber conserved in all vertices.
+      - Quantum number LeptonNumber NOT conserved in the following vertices
+          {eta, Phibar, ebar, LL}
+          {eta, Phibar, mubar, LL}
+          {eta, Phibar, tabar, LL}
+          {Phibar, ebar, LL}
+          {Phibar, mubar, LL}
+          {Phibar, tabar, LL}
+          {Phi, LLbar, e}
+          {Phi, LLbar, mu}
+          {Phi, LLbar, ta}
+          {eta, Phi, LLbar, e}
+          {eta, Phi, LLbar, mu}
+          {eta, Phi, LLbar, ta}
+      - Quantum number Q NOT conserved in the following vertices
+          {eta, Phi, ubar, QL}
+          {eta, Phi, cbar, QL}
+          {eta, Phi, tbar, QL}
+          {Phi, ubar, QL}
+          {Phi, cbar, QL}
+          {Phi, tbar, QL}
+          {eta, Phibar, dbar, QL}
+          {eta, Phibar, sbar, QL}
+          {eta, Phibar, bbar, QL}
+          {Phibar, dbar, QL}
+          {Phibar, sbar, QL}
+          {Phibar, bbar, QL}
+          {eta, Phibar, ebar, LL}
+          {eta, Phibar, mubar, LL}
+          {eta, Phibar, tabar, LL}
+          {Phibar, ebar, LL}
+          {Phibar, mubar, LL}
+          {Phibar, tabar, LL}
+          {Phi, QLbar, d}
+          {Phi, QLbar, s}
+          {Phi, QLbar, b}
+          {eta, Phi, QLbar, d}
+          {eta, Phi, QLbar, s}
+          {eta, Phi, QLbar, b}
+          {Phi, LLbar, e}
+          {Phi, LLbar, mu}
+          {Phi, LLbar, ta}
+          {eta, Phi, LLbar, e}
+          {eta, Phi, LLbar, mu}
+          {eta, Phi, LLbar, ta}
+          {Phibar, QLbar, u}
+          {Phibar, QLbar, c}
+          {Phibar, QLbar, t}
+          {eta, Phibar, QLbar, u}
+          {eta, Phibar, QLbar, c}
+          {eta, Phibar, QLbar, t}
+      - Quantum number Y NOT conserved in the following vertices
+          {eta, Phi, ubar, QL}
+          {eta, Phi, cbar, QL}
+          {eta, Phi, tbar, QL}
+          {Phi, ubar, QL}
+          {Phi, cbar, QL}
+          {Phi, tbar, QL}
+          {eta, Phibar, dbar, QL}
+          {eta, Phibar, sbar, QL}
+          {eta, Phibar, bbar, QL}
+          {Phibar, dbar, QL}
+          {Phibar, sbar, QL}
+          {Phibar, bbar, QL}
+          {eta, Phibar, ebar, LL}
+          {eta, Phibar, mubar, LL}
+          {eta, Phibar, tabar, LL}
+          {Phibar, ebar, LL}
+          {Phibar, mubar, LL}
+          {Phibar, tabar, LL}
+          {Phi, QLbar, d}
+          {Phi, QLbar, s}
+          {Phi, QLbar, b}
+          {eta, Phi, QLbar, d}
+          {eta, Phi, QLbar, s}
+          {eta, Phi, QLbar, b}
+          {Phi, LLbar, e}
+          {Phi, LLbar, mu}
+          {Phi, LLbar, ta}
+          {eta, Phi, LLbar, e}
+          {eta, Phi, LLbar, mu}
+          {eta, Phi, LLbar, ta}
+          {Phibar, QLbar, u}
+          {Phibar, QLbar, c}
+          {Phibar, QLbar, t}
+          {eta, Phibar, QLbar, u}
+          {eta, Phibar, QLbar, c}
+          {eta, Phibar, QLbar, t}
+   * particles.py written.
+   * parameters.py written.
+#
+# Vertex definitions
+#
+
+   * 107 vertices written.
+   * vertices.py written.
+#
+# Lorentz structure definitions
+#
+
+   * 24 lorentz structures written.
+   * lorentz.py written.
+#
+# Coupling definitions
+#
+
+   >>>> Non positive interaction order QED found for coupling GC_28.
+   >>>> Non positive interaction order QED found for coupling GC_29.
+   >>>> Non positive interaction order QED found for coupling GC_30.
+   >>>> Non positive interaction order QED found for coupling GC_55.
+   >>>> Non positive interaction order QED found for coupling GC_56.
+   >>>> Non positive interaction order QED found for coupling GC_57.
+   >>>> Non positive interaction order QED found for coupling GC_58.
+   >>>> Non positive interaction order QED found for coupling GC_59.
+   >>>> Non positive interaction order QED found for coupling GC_60.
+   >>>> Non positive interaction order QED found for coupling GC_67.
+   >>>> Non positive interaction order QED found for coupling GC_68.
+   >>>> Non positive interaction order QED found for coupling GC_69.
+   >>>> Non positive interaction order QED found for coupling GC_79.
+   >>>> Non positive interaction order QED found for coupling GC_81.
+   >>>> Non positive interaction order QED found for coupling GC_83.
+   >>>> Non positive interaction order QED found for coupling GC_85.
+   >>>> Non positive interaction order QED found for coupling GC_87.
+   >>>> Non positive interaction order QED found for coupling GC_89.
+   * 89 couplings written.
+   * couplings.py written.
+#
+# Coupling order definitions
+#
+
+   * 0 couplings orders written.
+   * coupling_orders.py written.
+#
+# Decay definitions
+#
+
+   * 10 decays written.
+   * decay.py not written
+#
+# CTCoupling definitions
+#
+
+   * 0 CTcouplings written.
+   * CT_couplings.py written.
