@@ -1,0 +1,135 @@
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+M$ModelName = "CHpseudo";
+
+M$Information = {
+  Authors      -> {"L. Mason", "B. Fuks"}, 
+  Version      -> "1.1",
+  Date         -> "03.05.2019",
+  Institutions -> {"SA-CERN", "LPTHE / Sorbonne U."},
+  Emails       -> {"lara.mason@live.com", "fuks@lpthe.jussieu.fr"},
+  URLs         -> ""
+};
+
+(* ************************** *)
+(* *****  Orders        ***** *)
+(* ************************** *)
+M$InteractionOrderHierarchy = { {QCD, 1},  {QED, 2},  {NP,1}};
+M$InteractionOrderLimit     = { {QCD, 99}, {QED, 99}, {NP,99}};
+
+
+(* ************************** *)
+(* *****     Fields     ***** *)
+(* ************************** *)
+M$ClassesDescription = {
+  S[4] == {
+    ClassName        -> eta,
+    SelfConjugate    -> True,
+    Mass             -> {Meta, 50.0},
+    Width            -> {Weta, 1.1}
+  }
+};
+
+(* ************************** *)
+(* *****   Parameters   ***** *)
+(* ************************** *)  
+M$Parameters = {
+  fa == {
+    ParameterType    -> External,
+    BlockName        -> ETA,
+    OrderBlock       -> 0,
+    TeX              -> Subscript[f,a],
+    InteractionOrder -> {NP, -1},
+    Value            -> 1000.0,
+    Description      -> "Inv coeff of the SM ferms with eta"
+  },
+  Cf == {
+    TeX           -> Subscript[C,f],
+    ParameterType -> External,
+    Value         -> 2.2,
+    BlockName     -> ETA,
+    OrderBlock    -> 1,
+    Description   -> "Coeff of the SM ferms with eta"
+  },
+  Ct == {
+    TeX           -> Subscript[C,t],
+    ParameterType -> External,
+    Value         -> -16.4,
+    BlockName     -> ETA,
+    OrderBlock    -> 7,
+    Description   -> "Coeff of the SM top with eta"
+  },
+  Kg == {
+    TeX           -> Subscript[K,g],
+    ParameterType -> External,
+    BlockName     -> ETA,
+    OrderBlock    -> 2,
+    Value         -> -7.2,
+    Description   -> "Coeff of the gauge fields with eta"
+  },
+  Kw == {
+    TeX           -> Subscript[K,w],
+    ParameterType -> External,
+    BlockName     -> ETA,
+    OrderBlock    -> 3,
+    Value         -> 7.6,
+    Description   -> "Coeff of the gauge fields with eta"
+  },
+  Kb == {
+    TeX           -> Subscript[K,b],
+    ParameterType -> External,
+    BlockName     -> ETA,
+    OrderBlock    -> 4,
+    Value         -> 2.8,
+    Description   -> "Coeff of the gauge fields with eta"
+  },
+  kV == {
+    TeX           -> Subscript[\[Kappa],V],
+    ParameterType -> External,
+    BlockName     -> ETA,
+    OrderBlock    -> 5,
+    Value         -> 1.01,
+    Description   -> "Coupling of Higgs to vectors"
+  },
+  kt == {
+    TeX           -> Subscript[\[Kappa],t],
+    ParameterType -> External,
+    BlockName     -> ETA,
+    OrderBlock    -> 6,
+    Value         -> 0.01,
+    Description   -> "Coupling of Higgs to tops"
+  }
+};
+
+
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+LPSeudo:=Block[{mu,sp,ii,jj,ff1,ff2,ff3,r, LPskin, LPsF, LPsG, Lhaa, LhZa },
+
+(* --- Kinetic part --- *)
+LPskin :=  1/2 del[eta,mu]^2 -1/2 Meta^2 eta^2;
+
+(* --- Fermion coupling part --- *)
+LPsF := - (I Cf)/fa yd[ff2, ff3]/Sqrt[2] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] eta Phi[ii] \
+        - (I Cf)/fa yl[ff1, ff3]/Sqrt[2] LLbar[sp, ii, ff1].lR[sp, ff3] eta Phi[ii] \
+        - (I Cf)/fa yu[ff1, ff2]/Sqrt[2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] eta Phibar[jj] Eps[ii,jj];
+
+(* LPsF := - (I Cf)/fa vev/Sqrt[2] yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] eta Phi[ii] \ *)
+(*        - (I Cf)/fa vev/Sqrt[2] yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] eta Phi[ii] \ *)
+(*        - (I Cf)/fa vev/Sqrt[2] yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] eta Phibar[jj] Eps[ii,jj]; *)
+
+(* --- Gauge coupling part --- *)
+LPsG := gw^2 Kw/(16 Pi^2 fa) FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] eta \
+      + g1^2 Kb/(16 Pi^2 fa) FS[B,mu,nu]     Dual[FS][B,mu,nu]     eta \
+      + gs^2 Kg/(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  eta;
+
+(* --- Loop level couplings --- *)
+Lhaa:=  3 Ct^2 MT^2 kt         / (8  Pi^2 fa^2 vev) Log[(4 Pi fa)^2/MT^2] H del[eta,mu] del[eta,mu];
+LhZa:= -3 Ct MT^2 gw (kt-kV) / (8 cw Pi^2 fa   vev) Log[(4 Pi fa)^2/MT^2] H del[eta,mu] Z[mu];
+
+LPskin + LPsF + HC[LPsF] + LPsG + Lhaa + LhZa];
