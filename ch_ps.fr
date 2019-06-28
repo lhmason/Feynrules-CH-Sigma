@@ -8,7 +8,7 @@ M$Information = {
   Authors      -> {"L. Mason", "B. Fuks"}, 
   Version      -> "1.1",
   Date         -> "03.05.2019",
-  Institutions -> {"SA-CERN", "LPTHE / Sorbonne U."},
+  Institutions -> {"University of Johannesburg/University of Lyon", "LPTHE / Sorbonne U."},
   Emails       -> {"lara.mason@live.com", "fuks@lpthe.jussieu.fr"},
   URLs         -> ""
 };
@@ -56,7 +56,7 @@ M$Parameters = {
   Ct == {
     TeX           -> Subscript[C,t],
     ParameterType -> External,
-    Value         -> -16.4,
+    Value         -> 2.2,
     BlockName     -> ETA,
     OrderBlock    -> 7,
     Description   -> "Coeff of the SM top with eta"
