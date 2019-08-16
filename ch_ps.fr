@@ -61,13 +61,39 @@ M$Parameters = {
     OrderBlock    -> 7,
     Description   -> "Coeff of the SM top with eta"
   },
+
+  taut == {
+    TeX           -> Subscript[\[Tau],t],
+    ParameterType -> Internal,
+    Value         -> 4*MT^2/Meta^2,
+    (*BlockName     -> ETA,*)
+    (*OrderBlock    -> 8,*)
+    Description   -> "Proportion of top mass to eta mass"
+  },
+
+  ftaut == {
+    TeX           -> Subscript[f(\[Tau]),t],
+    ParameterType -> Internal,
+    Value         -> ArcSin[1/Sqrt[taut]],
+    (*BlockName     -> ETA,*)
+    (*OrderBlock    -> 8,*)
+    Description   -> "Function of tau"
+  },
+
   Kg == {
     TeX           -> Subscript[K,g],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 2,
-    Value         -> -7.2,
+    Value         -> -7.2, 
     Description   -> "Coeff of the gauge fields with eta"
+  },
+
+  Kgeff == {
+    TeX           -> Subscript[K,geff],
+    ParameterType -> Internal,
+    Value         -> Kg + Ct*taut*ftaut, 
+    Description   -> "Effective coeff of the gauge fields with eta incl top loop"
   },
   Kw == {
     TeX           -> Subscript[K,w],
@@ -115,9 +141,9 @@ LPSeudo:=Block[{mu,sp,ii,jj,ff1,ff2,ff3,r, LPskin, LPsF, LPsG, Lhaa, LhZa },
 LPskin :=  1/2 del[eta,mu]^2 -1/2 Meta^2 eta^2;
 
 (* --- Fermion coupling part --- *)
-LPsF := - (I Cf)/fa yd[ff2, ff3]/Sqrt[2] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] eta Phi[ii] \
-        - (I Cf)/fa yl[ff1, ff3]/Sqrt[2] LLbar[sp, ii, ff1].lR[sp, ff3] eta Phi[ii] \
-        - (I Cf)/fa yu[ff1, ff2]/Sqrt[2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] eta Phibar[jj] Eps[ii,jj];
+LPsF := - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] eta Phi[ii] \
+        - (I Cf)/fa yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] eta Phi[ii] \
+        - (I Cf)/fa yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] eta Phibar[jj] Eps[ii,jj];
 
 (* LPsF := - (I Cf)/fa vev/Sqrt[2] yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] eta Phi[ii] \ *)
 (*        - (I Cf)/fa vev/Sqrt[2] yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] eta Phi[ii] \ *)
@@ -126,7 +152,7 @@ LPsF := - (I Cf)/fa yd[ff2, ff3]/Sqrt[2] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR
 (* --- Gauge coupling part --- *)
 LPsG := gw^2 Kw/(16 Pi^2 fa) FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] eta \
       + g1^2 Kb/(16 Pi^2 fa) FS[B,mu,nu]     Dual[FS][B,mu,nu]     eta \
-      + gs^2 Kg/(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  eta;
+      + gs^2 Kgeff/(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  eta;
 
 (* --- Loop level couplings --- *)
 Lhaa:=  3 Ct^2 MT^2 kt         / (8  Pi^2 fa^2 vev) Log[(4 Pi fa)^2/MT^2] H del[eta,mu] del[eta,mu];
