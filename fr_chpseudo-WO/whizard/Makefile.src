@@ -1,0 +1,31 @@
+models = \
+   fr_chpseudo.mdl
+libraries = \
+   libparameters_fr_chpseudo.la
+modules = \
+   $(patsubst %_f90,%.mod,$(subst .,_,$(src_fr_chpseudo)))
+
+globsrc_fr_chpseudo = parameters.fr_chpseudo.global.f90
+globobj_fr_chpseudo = $(globsrc_fr_chpseudo:.f90=.lo)
+
+locsrc_fr_chpseudo = parameters.fr_chpseudo.local.f90
+locobj_fr_chpseudo = $(locsrc_{fr_chpseudo}:.f90=.lo)
+
+cplsrc_fr_chpseudo = \
+   parameters.fr_chpseudo.cpl1.f90
+cplobj = $(cplsrc_fr_chpseudo:.f90=.lo)
+
+mainsrc_fr_chpseudo = parameters.fr_chpseudo.f90
+mainobj_fr_chpseudo = $(mainsrc_fr_chpseudo:.f90=.lo)
+
+src_fr_chpseudo = $(globsrc_fr_chpseudo) $(locsrc_fr_chpseudo) $(cplsrc_fr_chpseudo) $(mainsrc_fr_chpseudo)
+obj_fr_chpseudo = $(src_fr_chpseudo:.f90=.lo)
+
+
+$(locobj_fr_chpseudo): $(globobj_fr_chpseudo)
+$(cplobj_fr_chpseudo): $(globobj_fr_chpseudo) $(locobj_fr_chpseudo)
+$(mainobj_fr_chpseudo): $(globobj_fr_chpseudo) $(locobj_fr_chpseudo) $(cplobj_fr_chpseudo)
+parameters_fr_chpseudo.$(fc_modext): $(mainobj_fr_chpseudo)
+libparameters_fr_chpseudo.la: $(obj_fr_chpseudo)
+	$(libtool) --tag=FC --mode=link $(fc) -all-static  \
+	   -rpath $(prefix)/lib/whizard/models -o $@ $(obj_fr_chpseudo)

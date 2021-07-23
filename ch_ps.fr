@@ -45,6 +45,7 @@ M$Parameters = {
     Value            -> 1000.0,
     Description      -> "Inv coeff of the SM ferms with psa"
   },
+
   Cf == {
     TeX           -> Subscript[C,f],
     ParameterType -> External,
@@ -53,35 +54,9 @@ M$Parameters = {
     OrderBlock    -> 1,
     Description   -> "Coeff of the SM ferms with psa"
   },
-  Ct == {
-    TeX           -> Subscript[C,t],
-    ParameterType -> External,
-    Value         -> 2.2,
-    BlockName     -> ETA,
-    OrderBlock    -> 7,
-    Description   -> "Coeff of the SM top with psa"
-  },
-
-  taut == {
-    TeX           -> Subscript[\[Tau],t],
-    ParameterType -> Internal,
-    Value         -> 4*MT^2/Mpsa^2,
-    (*BlockName     -> ETA,*)
-    (*OrderBlock    -> 8,*)
-    Description   -> "Proportion of top mass to psa mass"
-  },
-
-  ftaut == {
-    TeX           -> Subscript[f(\[Tau]),t],
-    ParameterType -> Internal,
-    Value         -> ArcSin[1/Sqrt[taut]],
-    (*BlockName     -> ETA,*)
-    (*OrderBlock    -> 8,*)
-    Description   -> "Function of tau"
-  },
 
   Kg == {
-    TeX           -> Subscript[K,g],
+    TeX           -> Subscript[\[Kappa],g],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 2,
@@ -89,28 +64,24 @@ M$Parameters = {
     Description   -> "Coeff of the gauge fields with psa"
   },
 
-  Kgeff == {
-    TeX           -> Subscript[K,geff],
-    ParameterType -> Internal,
-    Value         -> Kg + Ct*taut*ftaut, 
-    Description   -> "Effective coeff of the gauge fields with psa incl top loop"
-  },
   Kw == {
-    TeX           -> Subscript[K,w],
+    TeX           -> Subscript[\[Kappa],w],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 3,
     Value         -> 7.6,
     Description   -> "Coeff of the gauge fields with psa"
   },
+
   Kb == {
-    TeX           -> Subscript[K,b],
+    TeX           -> Subscript[\[Kappa],b],
     ParameterType -> External,
     BlockName     -> ETA,
     OrderBlock    -> 4,
     Value         -> 2.8,
     Description   -> "Coeff of the gauge fields with psa"
   },
+
   kV == {
     TeX           -> Subscript[\[Kappa],V],
     ParameterType -> External,
@@ -119,6 +90,7 @@ M$Parameters = {
     Value         -> 1.01,
     Description   -> "Coupling of Higgs to vectors"
   },
+
   kt == {
     TeX           -> Subscript[\[Kappa],t],
     ParameterType -> External,
@@ -126,6 +98,41 @@ M$Parameters = {
     OrderBlock    -> 6,
     Value         -> 0.01,
     Description   -> "Coupling of Higgs to tops"
+  },
+
+  taut == {
+    TeX           -> Subscript[\[Tau],t],
+    ParameterType -> Internal,
+    Value         -> 4 MT^2/Mpsa^2, 
+    Description   -> "Tau for top quark"
+  },
+
+  taub == {
+    TeX           -> Subscript[\[Tau],b],
+    ParameterType -> Internal,
+    Value         -> 4 MB^2/Mpsa^2, 
+    Description   -> "Tau for bottom quark"
+  },
+
+  Kaa == {
+    TeX           -> Subscript[\[Kappa],\[Gamma]\[Gamma]],
+    ParameterType -> Internal,
+    Value         -> Kw + Kb, 
+    Description   -> "Coeff of the gauge fields with psa"
+  },
+
+  Kzz == {
+    TeX           -> Subscript[\[Kappa],ZZ],
+    ParameterType -> Internal,
+    Value         -> cw^4 Kw + sw^4 Kb, 
+    Description   -> "Coeff of the gauge fields with psa"
+  },
+
+  Kza == {
+    TeX           -> Subscript[\[Kappa],Z\[Gamma]],
+    ParameterType -> Internal,
+    Value         -> cw^2 Kw - sw^2 Kb, 
+    Description   -> "Coeff of the gauge fields with psa"
   }
 };
 
@@ -145,17 +152,21 @@ LPsF := - (I Cf)/fa yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff
         - (I Cf)/fa yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] psa Phi[ii] \
         - (I Cf)/fa yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] psa Phibar[jj] Eps[ii,jj];
 
-(* LPsF := - (I Cf)/fa vev/Sqrt[2] yd[ff2, ff3] CKM[ff1, ff2] QLbar[sp, ii, ff1, cc].dR [sp, ff3, cc] psa Phi[ii] \ *)
-(*        - (I Cf)/fa vev/Sqrt[2] yl[ff1, ff3] LLbar[sp, ii, ff1].lR[sp, ff3] psa Phi[ii] \ *)
-(*        - (I Cf)/fa vev/Sqrt[2] yu[ff1, ff2] QLbar[sp, ii, ff1, cc].uR[sp, ff2, cc] psa Phibar[jj] Eps[ii,jj]; *)
-
 (* --- Gauge coupling part --- *)
-LPsG := gw^2 Kw/(16 Pi^2 fa) FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] psa \
-      + g1^2 Kb/(16 Pi^2 fa) FS[B,mu,nu]     Dual[FS][B,mu,nu]     psa \
-      + gs^2 Kgeff/(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  psa;
+(* LPsG := gw^2 Kw/(16 Pi^2 fa) FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] psa \ *)
+(*      + g1^2 Kb/(16 Pi^2 fa) FS[B,mu,nu]     Dual[FS][B,mu,nu]     psa \ *)
+(*      + gs^2 Kg/(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  psa; *)
+
+(* --- Gauge coupling part with physical bosons --- *)
+(* the couplings Kg etc are left out here because they were introc=duced at the UFO level *)
+LPsG := gs^2                /(16 Pi^2 fa) FS[G,mu,nu,aa]  Dual[FS][G,mu,nu,aa]  psa \
+      + gw^2                /(16 Pi^2 fa) FS[Wi,mu,nu,ii] Dual[FS][Wi,mu,nu,ii] psa \
+      + ee^2                /(16 Pi^2 fa) FS[A,mu,nu]     Dual[FS][A,mu,nu]     psa \
+      + ee^2/(sw^2 cw^2)    /(16 Pi^2 fa) FS[Z,mu,nu]     Dual[FS][Z,mu,nu]     psa \
+      + 2 ee^2/(sw cw)      /(16 Pi^2 fa) FS[A,mu,nu]     Dual[FS][Z,mu,nu]     psa;
 
 (* --- Loop level couplings --- *)
-Lhaa:=  3 Ct^2 MT^2 kt         / (8  Pi^2 fa^2 vev) Log[(4 Pi fa)^2/MT^2] H del[psa,mu] del[psa,mu];
-LhZa:= -3 Ct MT^2 gw (kt-kV) / (8 cw Pi^2 fa   vev) Log[(4 Pi fa)^2/MT^2] H del[psa,mu] Z[mu];
+Lhaa:=  3 Cf^2 MT^2 kt         / (8  Pi^2 fa^2 vev) Log[(4 Pi fa)^2/MT^2] H del[psa,mu] del[psa,mu];
+LhZa:= -3 Cf MT^2 gw (kt-kV) / (8 cw Pi^2 fa   vev) Log[(4 Pi fa)^2/MT^2] H del[psa,mu] Z[mu];
 
 LPskin + LPsF + HC[LPsF] + LPsG + Lhaa + LhZa];

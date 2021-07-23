@@ -82,11 +82,6 @@ M$GenericCouplings = {
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 S[j3, mom3] ] ==
 G[-1][s1 F[j1], s2 F[j2], s3 S[j3]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
 
-	 (* FFSS *)
-
-AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 S[j3, mom3], s4 S[j4, mom4] ] ==
-G[-1][s1 F[j1], s2 F[j2], s3 S[j3], s4 S[j4]].{NonCommutative[ChiralityProjector[-1]], NonCommutative[ChiralityProjector[+1]]},
-
 	 (* FFV *)
 
 AnalyticalCoupling[s1 F[j1, mom1], s2 F[j2, mom2], s3 V[j3, mom3, {li3}] ] ==
@@ -95,7 +90,7 @@ G[-1][s1 F[j1], s2 F[j2], s3 V[j3]].{NonCommutative[DiracMatrix[li3], ChiralityP
 	 (* SSS *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 S[j2, mom2], s3 S[j3, mom3] ] ==
-G[+1][s1 S[j1], s2 S[j2], s3 S[j3]].{1, ScalarProduct[mom1,mom2], ScalarProduct[mom1,mom3], ScalarProduct[mom2,mom3]},
+G[+1][s1 S[j1], s2 S[j2], s3 S[j3]].{1},
 
 	 (* SSSS *)
 
@@ -120,17 +115,7 @@ G[+1][s1 S[j1], s2 U[j2], s3 U[j3]].{1},
 	 (* SVV *)
 
 AnalyticalCoupling[s1 S[j1, mom1], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}] ] ==
-G[-1][s1 S[j1], s2 V[j2], s3 V[j3]].{LeviCivita[FourVector[mom2], FourVector[mom3], li2, li3], MetricTensor[li2 ,li3 ]},
-
-	 (* SVVV *)
-
-AnalyticalCoupling[s1 S[j1, mom1], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}] ] ==
-G[-1][s1 S[j1], s2 V[j2], s3 V[j3], s4 V[j4]].{LeviCivita[FourVector[mom2], li2, li3, li4], LeviCivita[FourVector[mom3], li2, li3, li4], LeviCivita[FourVector[mom4], li2, li3, li4]},
-
-	 (* SVVVV *)
-
-AnalyticalCoupling[s1 S[j1, mom1], s2 V[j2, mom2, {li2}], s3 V[j3, mom3, {li3}], s4 V[j4, mom4, {li4}], s5 V[j5, mom5, {li5}] ] ==
-G[-1][s1 S[j1], s2 V[j2], s3 V[j3], s4 V[j4], s5 V[j5]].{LeviCivita[li2, li3, li4, li5]},
+G[+1][s1 S[j1], s2 V[j2], s3 V[j3]].{MetricTensor[li2 ,li3 ]},
 
 	 (* UUV *)
 
